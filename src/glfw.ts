@@ -33,7 +33,11 @@ const glfw = Deno.dlopen("./glfw/glfw3.dll", {
     glfwInitHint: {
         parameters: ["i32", "i32"],
         result: "void"
-    }
+    },
+    glfwCreateWindow: {
+        parameters: ["i32","i32", "pointer", "pointer", "pointer"],
+        result: "pointer"
+    },
 })
 
 export default glfw.symbols
