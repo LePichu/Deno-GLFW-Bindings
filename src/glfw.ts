@@ -1,5 +1,19 @@
-const glfwdll = Deno.dlopen("../glfw/glfe3.dll", {
+const glfw = Deno.dlopen("./glfw/glfw3.dll", {
     //Function defs here
+    glfwMakeContextCurrent: {
+        parameters: [
+            "pointer"
+        ],
+        result: "void"
+    },
+    glfwGetCurrentContext: {
+        parameters: [],
+        result: "pointer"
+    },
+    glfwSwapInterval: {
+        parameters: ["i32"],
+        result: "void"
+    }
 })
 
-export default glfwdll
+export default glfw.symbols
